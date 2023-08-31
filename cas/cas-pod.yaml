@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    io.kompose.service: cas
+  name: cas
+spec:
+  containers:
+  - args:
+    - cas
+    - -c
+    - /etc/cas/cas.toml
+    env:
+    - name: SCONE_LAS_ADDR
+      value: 172.17.0.1
+    - name: SCONE_LOG
+      value: info
+    - name: SCONE_MODE
+      value: HW
+    image: registry.scontain.com/scone.cloud/cas
+    name: cas
+    ports:
+    - containerPort: 8081
+    - containerPort: 18765
+    resources: {}
+    securityContext:
+      privileged: true
+    volumeMounts:
+    - mountPath: /etc/cas/
+      name: cas-claim0
+    workingDir: /etc/cas
+  restartPolicy: OnFailure
+  volumes:
+  - name: cas-claim0
+    persistentVolumeClaim:
+      claimName: cas-claim0
+status: {}

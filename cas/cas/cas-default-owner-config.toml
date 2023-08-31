@@ -1,0 +1,7 @@
+[ias]
+spid            = "00000000000000000000000000000000"
+linkable_quotes = true
+sp_key          = "00000000000000000000000000000000"
+
+[dcap]
+subscription_key = "b2cf362cc269453db9f5ee83681af6bf"

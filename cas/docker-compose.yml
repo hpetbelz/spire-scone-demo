@@ -1,0 +1,25 @@
+version: '3.2'
+services:
+    cas:
+        command: cas -c /etc/cas/cas.toml
+        environment:
+         - SCONE_LOG=info
+         - SCONE_MODE=HW
+         - SCONE_LAS_ADDR=172.17.0.1
+        image: registry.scontain.com/scone.cloud/cas
+        privileged: true
+        working_dir: /etc/cas
+        devices:
+          - "/dev/sgx_enclave:/dev/sgx_enclave"
+        volumes:
+          - "/home/thanos/repos/hpetbelz/spire-scone-demo/cas/cas:/etc/cas/"
+        restart: on-failure
+        ports:
+          - target: 8081
+            published: 8081
+            protocol: tcp
+            mode: host
+          - target: 18765
+            published: 18765
+            protocol: tcp
+            mode: host
