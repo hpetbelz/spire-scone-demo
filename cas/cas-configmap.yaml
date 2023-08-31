@@ -10,7 +10,7 @@ data:
     sp_key          = "00000000000000000000000000000000"
 
     [dcap]
-    subscription_key = "429833843f8348bb914d6549eca95509"
+    subscription_key = "00000000000000000000000000000000"
 
   cas.toml: |
     [database]
