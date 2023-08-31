@@ -35,4 +35,7 @@ spec:
   - name: cas-claim0
     persistentVolumeClaim:
       claimName: cas-claim0
+  - name: cas-config
+  configMap:
+    name: cas-config
 status: {}

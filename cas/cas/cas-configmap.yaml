@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cas-config
+data:
+  cas-default-owner-config.toml: |
+    [ias]
+    spid            = "00000000000000000000000000000000"
+    linkable_quotes = true
+    sp_key          = "00000000000000000000000000000000"
+
+    [dcap]
+    subscription_key = "429833843f8348bb914d6549eca95509"
+
+  cas.toml: |
+    [database]
+    path = "/etc/cas/cas.db"
+
+    [api]
+    api_listen = "0.0.0.0:8081"
+    enclave_listen = "0.0.0.0:18765"
